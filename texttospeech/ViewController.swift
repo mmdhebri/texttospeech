@@ -6,9 +6,18 @@
 //
 
 import UIKit
-
+import AVKit
 class ViewController: UIViewController {
-
+    
+    let synthesizer = AVSpeechSynthesizer()
+    @IBAction func btnSpeech(_ sender: UIButton) {
+        let utterance = AVSpeechUtterance(string: "اهلا بكم ")
+        
+        utterance.rate = 0.52
+        utterance.voice = AVSpeechSynthesisVoice(language: "ar-SA")
+        synthesizer.speak(utterance)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
